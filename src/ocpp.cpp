@@ -114,7 +114,7 @@ void ArduinoOcppTask::initializeArduinoOcpp() {
      * Initialize the OCPP library and provide it with the charger credentials
      */
     ocpp_initialize(*ocppSocket, ChargerCredentials(
-            "Advanced Series",         //chargePointModel
+            "SolX",         //chargePointModel
             "OpenEVSE",                //chargePointVendor
             currentfirmware.c_str(),   //firmwareVersion
             serial.c_str(),            //chargePointSerialNumber
