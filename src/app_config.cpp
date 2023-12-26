@@ -554,6 +554,9 @@ bool config_serialize(DynamicJsonDocument &doc, bool longNames, bool compactOutp
   return user_config.serialize(doc, longNames, compactOutput, hideSecrets);
 }
 
+void config_set(const char *name, int val) {
+  user_config.set(name, val);
+}
 void config_set(const char *name, uint32_t val) {
   user_config.set(name, val);
 }

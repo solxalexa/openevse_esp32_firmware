@@ -133,6 +133,9 @@ void ArduinoOcppTask::initializeArduinoOcpp() {
     allowOfflineTxForUnknownId = ArduinoOcpp::declareConfiguration<bool>("AllowOfflineTxForUnknownId", true, CONFIGURATION_FN, true, true, true, true);
     silentOfflineTx = ArduinoOcpp::declareConfiguration<bool>("AO_SilentOfflineTransactions", true, CONFIGURATION_FN, true, true, true, true);
 
+    maxCurrent = ArduinoOcpp::declareConfiguration<int>("MaxCurrent", 10, CONFIGURATION_FN, true, true, true, false);
+
+
     //when the OCPP server updates the configs, the following callback will apply them to the OpenEVSE configs
     setOnReceiveRequest("ChangeConfiguration", [this] (JsonObject) {
         config_set("ocpp_server", String((const char*) *backendUrl));
@@ -141,6 +144,7 @@ void ArduinoOcppTask::initializeArduinoOcpp() {
         config_set("ocpp_auth_auto", (uint32_t) (*freevendActive ? 1 : 0));
         config_set("ocpp_idtag", String((const char*) *freevendIdTag));
         config_set("ocpp_auth_offline", (uint32_t) (*allowOfflineTxForUnknownId ? 1 : 0));
+        config_set("max_current_soft", (int)(*maxCurrent));
         config_commit();
     });
 

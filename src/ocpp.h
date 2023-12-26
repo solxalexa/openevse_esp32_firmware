@@ -53,6 +53,10 @@ private:
     std::shared_ptr<ArduinoOcpp::Configuration<bool>> allowOfflineTxForUnknownId; //temporarily accept all NFC-cards while offline
     std::shared_ptr<ArduinoOcpp::Configuration<bool>> silentOfflineTx; //stop transaction journaling in long offline periods
 
+    std::shared_ptr<ArduinoOcpp::Configuration<int>> maxCurrent;
+    
+
+
 protected:
 
     //hook method of MicroTask::Task

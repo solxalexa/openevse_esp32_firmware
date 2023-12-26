@@ -239,6 +239,7 @@ extern void config_load_v1_settings();
 extern void config_reset();
 
 void config_set(const char *name, uint32_t val);
+void config_set(const char *name, int val);
 void config_set(const char *name, String val);
 void config_set(const char *name, bool val);
 void config_set(const char *name, double val);
